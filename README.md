@@ -29,7 +29,7 @@ Aquí te presentamos un adelanto de las emocionantes funcionalidades que planeam
 
 ## Contacto 📧
 
-Para cualquier pregunta, sugerencia o colaboración, no dudes en ponerte en contacto con el desarrollador a través de correo electrónico: [pointed@parguelassinfronteras.com][mailto:pointed@parguelassinfronteras.com]
+Para cualquier pregunta, sugerencia o colaboración, no dudes en ponerte en contacto con el desarrollador a través de correo electrónico: pointed@parguelassinfronteras.com
 
 ## Clonación e instalación 🚀
 
