@@ -17,5 +17,6 @@ use App\Http\Controllers\MoviesController;
 */
 
 Route::get("/", [IndexController::class, 'index']);
-Route::get("/categoria/{id}", [CategoriesController::class, 'show'])->name("category.show");
-Route::get("/{slug}", [MoviesController::class, 'show'])->name("movie.show");
+Route::get("/peliculas?categoria={name}", [MoviesController::class, 'show'])->name("category.all");
+Route::get("/peliculas/{slug}", [MoviesController::class, 'show'])->name("movie.show");
+Route::get("/peliculas",[MoviesController::class, 'all'])->name("movies.all");

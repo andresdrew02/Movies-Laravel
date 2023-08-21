@@ -17,12 +17,12 @@
             transform: translateY(-10%);
         }
     </style>
-    <section class="hero is-primary">
+    <section class="hero purple">
         <div class="hero-body">
-            <p class="title is-gapless">
+            <p class="title is-gapless has-text-white">
                 Movienator
             </p>
-            <p class="subtitle is-gapless">
+            <p class="subtitle is-gapless has-text-white">
                 Encuentra películas y opina sobre ellas con nuestra gran comunidad.
             </p>
             <button class="button hero-button">Unirte a Movienator</button>
@@ -43,7 +43,7 @@
                         </p>
                     </div>
                     <footer class="card-footer p-2">
-                        <a href="{{ route('category.show', $category->id) }}" class="button is-info is-fullwidth">
+                        <a href="{{ route('category.all', $category->name) }}" class="button is-info is-fullwidth">
                             Ver peliculas de
                             {{ strtolower($category->name) }}
                         </a>

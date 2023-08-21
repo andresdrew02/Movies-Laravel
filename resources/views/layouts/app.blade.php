@@ -14,12 +14,14 @@
 <body>
     <div id="navbar">
         <div class="marca">
-            <img src="logo.png" alt="Logo de movienator">
+            <a href="/">
+                <img src={{asset('logo.png')}} alt="Logo de movienator">
+            </a>
         </div>
         <div class="links">
             <div class="link-effect-3" id="link-effect-3">
                 <a href="#" data-hover="Categorías">Categorías</a>
-                <a href="#" data-hover="Peliculas">Peliculas</a>
+                <a href="/peliculas" data-hover="Peliculas">Peliculas</a>
                 <a href="#" data-hover="Comentarios">Comentarios</a>
             </div>
             <div>
