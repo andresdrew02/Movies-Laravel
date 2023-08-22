@@ -23,10 +23,10 @@
                                     <div class="card-content">
                                         <p class="title is-4">{{ $movie->name }}</p>
                                         <p class="subtitle is-6">Género:
-                                            <a
-                                                href="/peliculas?categoria={{ DB::table('categories')->where('id', $movie->category_id)->first()->name }}">
-                                                {{ DB::table('categories')->where('id', $movie->category_id)->first()->name }}
-                                            </a>
+                                            @php
+                                                $category = DB::table('categories')->where('id', $movie->category_id)->first()->name;
+                                                echo '<a href="/peliculas?categoria=' . $category . '">' . $category . '</a>';
+                                            @endphp
                                         </p>
                                         <p><a href="{{ route('movie.show', $movie->slug) }}" class="text-blue-600">Ver detalles</a></p>
                                     </div>
