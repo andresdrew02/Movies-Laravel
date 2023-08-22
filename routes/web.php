@@ -20,3 +20,4 @@ Route::get("/", [IndexController::class, 'index']);
 Route::get("/peliculas?categoria={name}", [MoviesController::class, 'show'])->name("category.all");
 Route::get("/peliculas/{slug}", [MoviesController::class, 'show'])->name("movie.show");
 Route::get("/peliculas",[MoviesController::class, 'all'])->name("movies.all");
+Route::get("/categorias",[CategoriesController::class, 'all'])->name("categories.index");

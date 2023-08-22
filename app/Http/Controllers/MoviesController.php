@@ -25,10 +25,10 @@ class MoviesController extends Controller
     public function all(Request $request)
     {
         $categoria = $request->query('categoria');
-        $movies = $categoria == null ? $movies = Movie::all() : 
+        $movies = $categoria == null ? $movies = Movie::orderBy('created_at', 'desc')->paginate(5) : 
             $movies = DB::table("movies")->join("categories", "categories.id", "=", "movies.category_id")
                 ->whereRaw("lower(categories.name) like ?", ["%" . strtolower($categoria) . "%"])
-                ->select("movies.*")->get();
+                ->select("movies.*")->paginate(5);
         return view('movies_all', [
             'movies' => $movies
         ]);

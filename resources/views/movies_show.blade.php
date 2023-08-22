@@ -18,8 +18,7 @@
                         <div class="card-content">
                             <p class="title is-4">{{ $movie->name }}</p>
                             <p class="subtitle is-6">Género: <a
-                                    href="/peliculas?categoria={{ $category->name }}">{{ $category->name }}<button
-                                        class="button is-primary" onclick="history.back()">Volver atrás</button>
+                                    href="/peliculas?categoria={{ $category->name }}">{{ $category->name }}
                                 </a></p>
                             <p>Sinopsis: {{ $movie->description }}</p>
                         </div>

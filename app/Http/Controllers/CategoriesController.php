@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
 {
-    public function show($id)
+    public function all()
     {
-        return view('movies.show', ['id' => $id]);
+        $categories = Category::all();
+        return view('categories_index', ['categories' => $categories]);
     }
 }

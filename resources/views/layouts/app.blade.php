@@ -20,7 +20,7 @@
         </div>
         <div class="links">
             <div class="link-effect-3" id="link-effect-3">
-                <a href="#" data-hover="Categorías">Categorías</a>
+                <a href="/categorias" data-hover="Categorías">Categorías</a>
                 <a href="/peliculas" data-hover="Peliculas">Peliculas</a>
                 <a href="#" data-hover="Comentarios">Comentarios</a>
             </div>
