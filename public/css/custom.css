@@ -187,7 +187,14 @@ h1 {
     color:rgb(0, 110, 255);
     transition: color 0.3s;
   }
-  
+
+  .editar-perfil{
+    display:flex; 
+    gap:1em;
+    margin-top:5em; 
+    padding:2em; 
+    width:100%
+  }
 
 @media screen and (max-width: 900px) {
     #navbar{
@@ -219,6 +226,13 @@ h1 {
     }
     .listado-peliculas{
         grid-template-columns: 1fr 1fr;
+    }
+    .cerrar-sesion{
+        margin-top:1em;
+    }
+
+    .editar-perfil{
+        flex-direction: column;
     }
 }
 
