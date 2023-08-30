@@ -27,10 +27,9 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    
+
      public function update(Request $request)
      {
-        //TODO: Validar que el email es único
         $validator = Validator::make($request->all(), [
             'nombre' => ['required', 'string', 'max:255', 'min: 4'],
             'email' => ['required', 'email', 'max:255', 'unique:'.User::class],

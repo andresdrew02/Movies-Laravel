@@ -8,10 +8,12 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Comment;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Class Movie
- * 
+ *
  * @property int $id
  * @property string $name
  * @property string $description
@@ -21,7 +23,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $slug
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Category $category
  *
  * @package App\Models
@@ -47,5 +49,10 @@ class Movie extends Model
 	public function category()
 	{
 		return $this->belongsTo(Category::class);
+	}
+
+	public function comments(): HasMany
+	{
+		return $this->hasMany(Comment::class);
 	}
 }
