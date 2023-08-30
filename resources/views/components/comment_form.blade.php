@@ -24,24 +24,25 @@
 
 <script>
     $('body').on('submit', (e) => {
-        e.preventDefault()
-        $('input[type=submit]').prop('disabled', true)
-        //Reseteamos los errors
-        $('#errors')[0].innerHTML = ''
+        if (e.target.id === "commentForm"){
+            e.preventDefault()
+            $('input[type=submit]').prop('disabled', true)
+            //Reseteamos los errors
+            $('#errors')[0].innerHTML = ''
 
-        //Se realiza la solicitud, si devuelve un 200 okay se agrega el comentario dinamicamente, si no se actualiza los errores
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('input[name="csrf-token"]').attr('content')
-            }
-        })
-        $.ajax('{{route('comment.store', $movie->slug)}}', {
-            method: 'POST',
-            data: $('#commentForm').serialize(),
-            success: (data) => {
-                const comentariosEl = $('#comentarios')[0]
-                const fecha = new Date(data.created_at)
-                comentariosEl.innerHTML += `
+            //Se realiza la solicitud, si devuelve un 200 okay se agrega el comentario dinamicamente, si no se actualiza los errores
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('input[name="csrf-token"]').attr('content')
+                }
+            })
+            $.ajax('{{route('comment.store', $movie->slug)}}', {
+                method: 'POST',
+                data: $('#commentForm').serialize(),
+                success: (data) => {
+                    const comentariosEl = $('#comentarios')[0]
+                    const fecha = new Date(data.created_at)
+                    comentariosEl.innerHTML += `
                 <div class="box" id="${data.id}">
                     <article class="media" style="display:flex; justify-content: space-between; align-items: center">
                        <div style="margin-left:2em">
@@ -67,27 +68,28 @@
                        </button>
                 </article>
                 `
-                const addedElement = $(`#${data.id}`)[0]
-                addedElement.scrollIntoView({
-                    behavior: 'smooth'
-                })
-                $('input[type=submit]').prop('disabled', false)
-            },
-            error: (data) => {
-                $('input[type=submit]').prop('disabled', false)
-                const errorsEl = $('#errors')[0]
-                const errors = data.responseJSON
-                errorsEl.innerHTML += '<ul>'
-                for (const [key,value] of Object.entries(errors)){
-                    value.forEach((e) => {
-                        errorsEl.innerHTML += `<li>${key}: ${e}`
+                    const addedElement = $(`#${data.id}`)[0]
+                    addedElement.scrollIntoView({
+                        behavior: 'smooth'
+                    })
+                    $('input[type=submit]').prop('disabled', false)
+                },
+                error: (data) => {
+                    $('input[type=submit]').prop('disabled', false)
+                    const errorsEl = $('#errors')[0]
+                    const errors = data.responseJSON
+                    errorsEl.innerHTML += '<ul>'
+                    for (const [key,value] of Object.entries(errors)){
+                        value.forEach((e) => {
+                            errorsEl.innerHTML += `<li>${key}: ${e}`
+                        })
+                    }
+                    errorsEl.innerHTML += '</ul>'
+                    errorsEl.scrollIntoView({
+                        behavior: 'smooth'
                     })
                 }
-                errorsEl.innerHTML += '</ul>'
-                errorsEl.scrollIntoView({
-                    behavior: 'smooth'
-                })
-            }
-        })
+            })
+        }
     })
 </script>

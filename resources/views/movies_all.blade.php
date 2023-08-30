@@ -4,6 +4,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 @section('content')
     <h1 class="title p-4">Listado de películas</h1>
+    @include('./components.movie-filters')
     <div class="is-center">
         <div class="listado-peliculas @php if ($movies->count() == 0) echo 'flex justify-center items-center'; @endphp">
             @if ($movies->count() == 0)

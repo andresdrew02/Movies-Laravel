@@ -28,6 +28,8 @@ class MoviesController extends Controller
     public function all(Request $request)
     {
         $categoria = $request->query('categoria');
+        $estrellas = $request->query('estrellas');
+        $query = $request->query('q');
         $movies = $categoria == null ? $movies = Movie::orderBy('created_at', 'desc')->paginate(5) :
             $movies = DB::table("movies")->join("categories", "categories.id", "=", "movies.category_id")
                 ->whereRaw("lower(categories.name) like ?", ["%" . strtolower($categoria) . "%"])
