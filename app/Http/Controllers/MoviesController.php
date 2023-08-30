@@ -14,7 +14,7 @@ class MoviesController extends Controller
     {
         $movie = Movie::query()->where('slug', $slug)->first();
         $category = Category::query()->where("id", $movie->category_id)->first();
-        $comments = Comment::query()->where("movie_id", $movie->id)->orderBy('created_at', 'desc')->get();
+        $comments = Comment::query()->where("movie_id", $movie->id)->orderBy('created_at', 'desc')->paginate(10);
         if ($movie == null){
             abort(404);
         }

@@ -24,4 +24,5 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
     Route::post('/comment/{slug}', [CommentController::class, 'store'])->name('comment.store');
+    Route::delete('/comment/{id}', [CommentController::class, 'destroy'])->name('comment.destroy');
 });

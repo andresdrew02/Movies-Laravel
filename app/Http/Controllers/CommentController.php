@@ -35,4 +35,18 @@ class CommentController extends Controller
 
         return response($comment,200);
     }
+
+    public function destroy(Request $request, Int $id)
+    {
+        $comment = Comment::findOrFail($id);
+        if ($comment->user_id != Auth::id())
+        {
+            return response('',403);
+        }
+        if ($comment->delete())
+        {
+            return response('/', 200);
+        }
+        return response('/',500);
+    }
 }
