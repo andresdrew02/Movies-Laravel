@@ -1,7 +1,7 @@
 <div id="navbar">
     <div class="marca">
         <a href="/">
-            <img src="https://drive.google.com/uc?id=1J0h-XO72QZiuFUbRwqTHvyBdTCvQed20" alt="Logo de Movienator">
+            <img src="https://drive.google.com/uc?id=1TqFJyiubL0wJXUhxkIndcdOKYYUWCm4j" alt="Logo de Movienator">
         </a>
     </div>
     <div class="links">
