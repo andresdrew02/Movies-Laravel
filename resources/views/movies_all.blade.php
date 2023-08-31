@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Listado de películas')
-<link rel="stylesheet" href="{{ asset('css/pagination.css') }}">
+<link rel="stylesheet" href="https://drive.google.com/uc?id=12IAn4T9eJTUVgSseD2j_1KQqc7_-g7d0">
 <script src="https://cdn.tailwindcss.com"></script>
 @section('content')
     <h1 class="title p-4">Listado de películas</h1>
