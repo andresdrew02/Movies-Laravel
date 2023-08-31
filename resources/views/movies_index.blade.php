@@ -28,7 +28,7 @@
             <p class="subtitle is-gapless has-text-white">
                 Encuentra películas y opina sobre ellas con nuestra gran comunidad.
             </p>
-            <button class="button hero-button">Unirte a Movienator</button>
+            <a href="/register" class="button hero-button">Unirte a Movienator</a>
         </div>
     </section>
 
