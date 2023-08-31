@@ -160,7 +160,7 @@ h1 {
 }
 
 .hero-image{
-    background:url('https://drive.google.com/uc?id=17QLJ7d8w-LGOrq_8uRlsCZm1vMdduEot');
+    background:url('../images/fondo.png');
     background-position: center;
     background-attachment: fixed;
 }

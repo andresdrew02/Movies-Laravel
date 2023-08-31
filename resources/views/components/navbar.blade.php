@@ -1,7 +1,7 @@
 <div id="navbar">
     <div class="marca">
         <a href="/">
-            <img src="https://drive.google.com/uc?id=1TqFJyiubL0wJXUhxkIndcdOKYYUWCm4j" alt="Logo de Movienator">
+            <img src={{asset('logo.png')}} alt="Logo de movienator">
         </a>
     </div>
     <div class="links">
