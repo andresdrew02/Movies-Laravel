@@ -22,7 +22,8 @@
                             <p class="subtitle is-6">Género: <a
                                     href="/peliculas?categoria={{ $category->name }}">{{ $category->name }}
                                 </a></p>
-                            <p>Sinopsis: {{ $movie->description }}</p>
+                            <p><strong>Sinopsis:</strong> {{ $movie->description }}</p>
+                            <p><strong>Estrellas:</strong> {{ $movie->stars }}</p>
                         </div>
                     </div>
                 </div>
@@ -78,6 +79,9 @@
     <script>
         //Función que gestiona el borrado de un comentario mediante AJAX tanto de los comentarios del POST que correspondan al usuario como los que añada y se actualicen dinámicamente
         function deleteComment(id){
+            if (!window.confirm('¿Está seguro de que desea borrar el comentario?')){
+                return
+            }
             const el = document.getElementById(id)
             el.scrollIntoView({
                 behavior:"smooth"

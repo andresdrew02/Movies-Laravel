@@ -80,9 +80,13 @@
                     const errors = data.responseJSON
                     errorsEl.innerHTML += '<ul>'
                     for (const [key,value] of Object.entries(errors)){
-                        value.forEach((e) => {
-                            errorsEl.innerHTML += `<li>${key}: ${e}`
-                        })
+                        if (Array.isArray(value)){
+                            value.forEach((e) => {
+                                errorsEl.innerHTML += `<li>${key}: ${e}`
+                            })
+                        }else{
+                            errorsEl.innerHTML += `<li>${key}: ${value}`
+                        }
                     }
                     errorsEl.innerHTML += '</ul>'
                     errorsEl.scrollIntoView({

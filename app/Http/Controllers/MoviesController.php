@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\MoviesFilters;
 use Illuminate\Http\Request;
 use App\Models\Movie;
 use App\Models\Category;
@@ -25,15 +26,17 @@ class MoviesController extends Controller
         ]);
     }
 
-    public function all(Request $request)
+    public function all(MoviesFilters $filters)
     {
-        $categoria = $request->query('categoria');
-        $estrellas = $request->query('estrellas');
-        $query = $request->query('q');
-        $movies = $categoria == null ? $movies = Movie::orderBy('created_at', 'desc')->paginate(5) :
-            $movies = DB::table("movies")->join("categories", "categories.id", "=", "movies.category_id")
-                ->whereRaw("lower(categories.name) like ?", ["%" . strtolower($categoria) . "%"])
-                ->select("movies.*")->paginate(5);
+        try {
+            $movies = Movie::filter($filters)->orderBy('movies.created_at', 'desc')->paginate(5);
+        }
+        catch (\Exception $e){
+            return view('movies_all',[
+                'error' => 'Filtros no válidos',
+                'movies' => Movie::query()->paginate(5)
+            ]);
+        }
         return view('movies_all', [
             'movies' => $movies
         ]);

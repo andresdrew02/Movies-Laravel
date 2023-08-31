@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\ProfanityFilter;
 use App\Models\Comment;
 use App\Models\Movie;
 use Illuminate\Http\Request;
@@ -10,6 +11,13 @@ use Illuminate\Support\Facades\Validator;
 
 class CommentController extends Controller
 {
+    public function all(Request $request)
+    {
+        $comments = Comment::where('user_id', Auth::id())->paginate(10);
+        return view('comments_all', [
+            'comentarios' => $comments
+        ]);
+    }
     public function store(Request $request, String $slug)
     {
         //Comprueba la existencia de la pelicula
@@ -26,6 +34,11 @@ class CommentController extends Controller
             return response($validator->errors()->toArray(), 400);
         }
 
+        $profanity = ProfanityFilter::filter($request->comment);
+
+        if ($profanity) {
+            return response()->json(['profanity'=>'El comentario contiene palabras prohibidas'], 400);
+        }
         $validatedData = $request->all();
         $comment = Comment::create([
             'movie_id' => $movie->id,
