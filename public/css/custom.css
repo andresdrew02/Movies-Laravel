@@ -160,7 +160,7 @@ h1 {
 }
 
 .hero-image{
-    background:url('../images/fondo.png');
+    background:url('https://drive.google.com/uc?id=17QLJ7d8w-LGOrq_8uRlsCZm1vMdduEot');
     background-position: center;
     background-attachment: fixed;
 }
@@ -189,10 +189,10 @@ h1 {
   }
 
   .editar-perfil{
-    display:flex; 
+    display:flex;
     gap:1em;
-    margin-top:5em; 
-    padding:2em; 
+    margin-top:5em;
+    padding:2em;
     width:100%
   }
 
@@ -220,7 +220,7 @@ h1 {
     .columna{
         padding: 1em;
     }
-    
+
     .columna .subtitle{
         height: auto;
     }
