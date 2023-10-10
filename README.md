@@ -17,7 +17,7 @@ Este proyecto está desarrollado utilizando el poderoso framework Laravel. Larav
 
 ## Contacto 📧
 
-Para cualquier pregunta, sugerencia o colaboración, no dudes en ponerte en contacto con el desarrollador a través de correo electrónico: pointed@parguelassinfronteras.com
+Para cualquier pregunta, sugerencia o colaboración, no dudes en ponerte en contacto con el desarrollador a través de correo electrónico: drewdaw9@gmail.com
 
 ## Clonación e instalación 🚀
 
